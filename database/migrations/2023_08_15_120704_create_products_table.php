@@ -28,12 +28,6 @@ return new class extends Migration {
             $table->Integer('stock');
             $table->string('slug');
             $table->string('guarantee')->nullable();
-            $table
-                ->foreignId('color_id')
-                ->nullable()
-                ->constrained('product_colors')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->tinyInteger('sold_number')->default(0);
             $table
                 ->tinyInteger('marketable')
