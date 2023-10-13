@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::middleware(['auth', 'role:admin|writer|postman'])->name('admin.')->prefix('admin')->group(function(){
+    Route::middleware(['auth', 'role:admin'])->group(function(){
+
+    });
+    Route::middleware(['auth', 'role:writer'])->group(function(){
+
+    });
+    Route::middleware(['auth', 'role:postman'])->group(function(){
+
+    });
+    Route::get('/',[DashboardController::class,'index'])->name('index');
+
 });
