@@ -6,6 +6,8 @@ $(function() {
 
     $(function() {
         $('#dataTableExample').DataTable({
+            destroy: true,
+            "autoWidth": false,
             "aLengthMenu": [
                 [10, 30, 50, -1],
                 [10, 30, 50, "همه"]

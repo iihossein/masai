@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('address_id')->nullable()->constrained('addresses')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('payment_id')->nullable()->constrained('payments')->onUpdate('cascade')->onDelete('cascade');
             $table->tinyInteger('payment_status')->default(0);
-            $table->foreignId('delivery_id')->nullable()->constrained('delivery')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('delivery_id')->nullable()->constrained('deliveries')->onUpdate('cascade')->onDelete('cascade');
             $table->decimal('delivery_amount',20,3)->nullable();
             $table->tinyInteger('delivery_status')->default(0);
             $table->timestamp('delivery_date')->nullable();

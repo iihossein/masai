@@ -30,8 +30,8 @@ return new class extends Migration {
             $table->timestamp('activation_date')->nullable();
             $table->string('password')->nullable();
             $table->string('provider')->nullable();
-            $table->string('provider_id')->nullable();
-            $table->string('provider_token')->nullable();
+            // $table->string('provider_id')->nullable();
+            // $table->string('provider_token')->nullable();
             $table->string('mobile', 12)->nullable();
             $table->string('avatar')->nullable();
             $table->timestamp('birthday')->nullable();
