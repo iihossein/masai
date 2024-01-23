@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Product extends Model
 {
@@ -18,8 +19,9 @@ class Product extends Model
     {
         return $this->belongsTo(Brand::class);
     }
-    public function productImages(): HasMany
+    public function images(): MorphToMany
     {
-        return $this->hasMany(ProductImage::class);
+        return $this->belongsToMany(Image::class, 'product_photos', 'product_id', 'photo_id')
+                ->withPivot('size');
     }
 }
