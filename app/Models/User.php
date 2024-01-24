@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Review;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -47,6 +48,18 @@ class User extends Authenticatable
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
+    }
+    public function payments(): HasMany
+    {
+        return $this->hasMany(Payment::class);
+    }
+    public function cart_items(): HasMany
+    {
+        return $this->hasMany(CartItem::class);
+    }
+    public function address(): HasOne
+    {
+        return $this->hasOne(Address::class);
     }
 
 }

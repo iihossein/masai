@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->decimal('amount',20,3);
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->tinyInteger('status')->default(0)->comment("0 => 'dar entezar pardakht' , 1 => 'pardakht shode'");
-            $table->unsignedBigInteger('paymentable_id');
-            $table->unsignedBigInteger('paymentable_type');
+            $table->foreignId('order_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            // $table->unsignedBigInteger('paymentable_id');
+            // $table->unsignedBigInteger('paymentable_type');
             $table->timestamps();
         });
     }

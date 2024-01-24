@@ -15,8 +15,4 @@ class Brand extends Model
     {
         return $this->hasMany(Product::class);
     }
-    public function image(): MorphTo
-    {
-    return $this->belongsTo(Image::class, 'photo_id');
-    }
 }

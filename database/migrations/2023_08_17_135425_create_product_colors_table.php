@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('color_name');
             $table->string('color_code');
+            $table->foreignId('product_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->tinyInteger('status')->default(0);
+            $table->Integer('stock');
             $table->tinyInteger('sold_number')->default(0);
             $table->timestamps();
         });

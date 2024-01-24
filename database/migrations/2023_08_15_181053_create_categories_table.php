@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('slug')->unique()->nullable();
             $table->foreignId('parent_id')->nullable()->constrained('categories')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('product_id')->constrained('products')->onUpdate('cascade')->onDelete('cascade');
             $table->text('image')->nullable();
             $table->tinyInteger('sort_order');
             $table->timestamps();

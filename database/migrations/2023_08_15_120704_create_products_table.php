@@ -21,9 +21,12 @@ return new class extends Migration {
                 ->constrained('brands')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table
+                ->foreignId('category_id')
+                ->constrained('categories')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->decimal('price', 20, 3);
-            // $table->foreignId('discount_id')->nullable()->constrained('discounts')->onUpdate('cascade')->onDelete('cascade');
-            $table->decimal('discount_amount', 20, 3);
             $table->decimal('final_price', 20, 3);
             $table->Integer('stock');
             $table->string('slug');
