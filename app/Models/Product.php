@@ -10,11 +10,26 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 
 class Product extends Model implements HasMedia
 {
     use HasFactory,InteractsWithMedia;
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+        ->crop(\Spatie\Image\Manipulations::CROP_CENTER, 100, 100)
+            ->optimize();
+
+        $this->addMediaConversion('medium')
+        ->crop(\Spatie\Image\Manipulations::CROP_CENTER, 400, 400)
+            ->optimize();
+
+        $this->addMediaConversion('large')
+        ->crop(\Spatie\Image\Manipulations::CROP_CENTER, 800, 800)
+            ->optimize();
+    }
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
