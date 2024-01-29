@@ -1,4 +1,4 @@
-﻿@extends('auth.register')
+﻿@extends('layouts.master')
 @section('content')
 <main class="wrapper default ">
     <div class="container">
