@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
+use Laravel\Fortify\Http\Controllers\RegisteredUserController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +35,10 @@ Route::middleware(['auth', 'role:admin|writer|postman'])->name('admin.')->prefix
     Route::get('/',[DashboardController::class,'index'])->name('index');
 
 });
+
+
+// Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+//     ->middleware(['guest']);
+
+// Route::post('/register', [RegisteredUserController::class, 'store'])
+//     ->middleware(['guest']);

@@ -18,11 +18,7 @@ return new class extends Migration {
                 ->unique();
             $table->string('first_name', 40);
             $table->string('last_name', 60);
-            $table
-                ->string('email')
-                ->unique()
-                ->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('mobile', 12)->nullable();
             $table
                 ->tinyInteger('activation')
                 ->default(0)
@@ -32,7 +28,6 @@ return new class extends Migration {
             $table->string('provider')->nullable();
             // $table->string('provider_id')->nullable();
             // $table->string('provider_token')->nullable();
-            $table->string('mobile', 12)->nullable();
             $table->string('avatar')->nullable();
             $table->timestamp('birthday')->nullable();
             $table->tinyInteger('gender')->nullable()->comment('0 => man , 1 => wommen');
