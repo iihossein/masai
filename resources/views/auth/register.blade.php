@@ -11,7 +11,7 @@
 
 
 
-                    <form class="" method="POST">
+                    <form method="POST" action="{{ route('register') }}" class="">
                         @csrf
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
@@ -81,13 +81,12 @@
                             </div>
 
                             <div class="col-12 text--center">
-                                <a href="#" class="btn big_btn btn-main-masai">عضویت  </a>
+                                <button type="submit" class="btn big_btn btn-main-masai">عضویت</button>
                             </div>
                             <div class="col-12 footer_login_reg text--center">
                                 <p>
                                     <span>قبلا ثبت نام کرده اید؟</span>
                                     <a href="login.html">ورود</a>
-
                                 </p>
 
                             </div>

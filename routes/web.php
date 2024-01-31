@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('das', function () {
-    return view('admin.products.products_list');
+    return view('admin.profile.profile');
 });
 Route::middleware(['auth', 'role:admin|writer|postman'])->name('admin.')->prefix('admin')->group(function(){
     Route::middleware(['auth', 'role:admin'])->group(function(){

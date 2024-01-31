@@ -1,4 +1,4 @@
-﻿@extends('auth.login')
+﻿@extends('layouts.master')
 @section('content')
 <main class="wrapper default">
     <div class="container">
@@ -11,20 +11,35 @@
 
 
 
-                        <form class="">
+                        <form method="POST" action="{{ route('login') }}" class="">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-12 col-sm-12">
                                     <div class="form-account-title"><span>*</span> نام کاربری</div>
                                     <div class="form-account-row">
-                                        <input class="input_second input_all" type="text" placeholder=" نام کاربری شما">
+                                        <input class="input_second input_all" type="text" placeholder=" نام کاربری شما" name="mobile">
                                     </div>
                                 </div>
+                                @error('mobile')
+                                    <span class="invalid-feedback d-block">
+                                        <strong>
+                                            {{ $message }}
+                                        </strong>
+                                    </span>
+                                @enderror
                                 <div class="col-md-12 col-sm-12">
                                     <div class="form-account-title"><span>*</span> کلمه عبور</div>
                                     <div class="form-account-row">
-                                        <input class="input_second input_all" type="password" placeholder=" کلمه عبور شما">
+                                        <input class="input_second input_all" type="password" placeholder=" کلمه عبور شما" name="password">
                                     </div>
                                 </div>
+                                @error('password')
+                                    <span class="invalid-feedback d-block">
+                                        <strong>
+                                            {{ $message }}
+                                        </strong>
+                                    </span>
+                                @enderror
 
 
 
@@ -41,7 +56,7 @@
                                     <a class="faramooshi" href="#">رمز عبور را فراموش کرده اید؟</a>
                                 </div>
                                 <div class="col-12 text--center">
-                                    <a href="#" class="btn big_btn btn-main-masai">ورود  </a>
+                                    <button type="submit" class="btn big_btn btn-main-masai">ورود</button>
                                 </div>
                                 <div class="col-12 footer_login_reg text--center">
                                     <p>

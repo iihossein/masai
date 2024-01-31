@@ -26,7 +26,7 @@ class User extends Authenticatable implements HasMedia
      */
     protected $fillable = [
         'name',
-        'email',
+        'mobile',
         'password',
     ];
 
@@ -67,9 +67,6 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany(CartItem::class);
     }
-    public function address(): HasOne
-    {
-        return $this->hasOne(Address::class);
-    }
+    
 
 }
