@@ -153,26 +153,26 @@
                                                     <div class="row mb-3">
                                                         <label for="exampleInputUsername2" class="col-sm-2 col-form-label">نام</label>
                                                         <div class="col-sm-6">
-                                                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="ایمیل" name="name">
+                                                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="نام" name="name">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
                                                         <label for="exampleInputUsername2" class="col-sm-2 col-form-label">نام خانوادگی</label>
                                                         <div class="col-sm-6">
-                                                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="ایمیل" name="name">
+                                                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="نام خانوادگی" name="last_name">
                                                         </div>
                                                     </div>
 
                                                     <div class="row mb-3">
                                                         <label for="exampleInputMobile" class="col-sm-2 col-form-label">موبایل</label>
                                                         <div class="col-sm-6">
-                                                            <input type="number" class="form-control" id="exampleInputMobile" placeholder="شماره موبایل">
+                                                            <input type="number" class="form-control" id="exampleInputMobile" placeholder="شماره موبایل" name="mobile">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
                                                         <label for="exampleInputMobile" class="col-sm-2 col-form-label">کد ملی</label>
                                                         <div class="col-sm-6">
-                                                            <input type="number" class="form-control" id="exampleInputMobile" placeholder="کد ملی خود را وارد کنید">
+                                                            <input type="number" class="form-control" id="exampleInputMobile" placeholder="کد ملی خود را وارد کنید" name="national_code">
                                                         </div>
                                                     </div>
 
@@ -195,26 +195,26 @@
                                                     <div class="row mb-3">
                                                         <label  class="col-sm-2 col-form-label">کارت بانکی</label>
                                                         <div class="col-sm-5">
-                                                            <input  class="form-control" placeholder="شماره حساب برای بازگشت پول" data-inputmask-alias="9999-9999-9999-9999" name="name">
+                                                            <input  class="form-control" placeholder="شماره حساب برای بازگشت پول" data-inputmask-alias="9999-9999-9999-9999" name="bank_card">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
                                                         <label  class="col-sm-2 col-form-label">کد پستی</label>
                                                         <div class="col-sm-5">
-                                                            <input  class="form-control" placeholder="کد پستی منزل یا شرکت" name="name">
+                                                            <input  class="form-control" placeholder="کد پستی منزل یا شرکت" name="postal_code">
                                                         </div>
                                                     </div>
 
                                                     <div class="row mb-3">
                                                         <label for="exampleInputMobile" class="col-sm-2 col-form-label">آدرس</label>
                                                         <div class="col-sm-5">
-                                                            <input type="text" class="form-control" id="exampleInputMobile" placeholder="مکان دریافت کالا">
+                                                            <input type="text" class="form-control" id="exampleInputMobile" placeholder="مکان دریافت کالا" name="address">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
                                                         <label for="exampleInputUsername2" class="col-sm-2 col-form-label">تاریخ تولد</label>
                                                         <div class="col-sm-6">
-                                                            <input  data-jdp class="form-control" id="exampleInputUsername2">
+                                                            <input  data-jdp class="form-control" id="exampleInputUsername2" name="birthday">
                                                         </div>
                                                     </div>
                                                     

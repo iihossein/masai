@@ -25,9 +25,14 @@ class User extends Authenticatable implements HasMedia
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'mobile',
+        'national_code',
+        'address',
         'password',
+        'avatar',
+        'birthday',
     ];
 
     /**
@@ -67,6 +72,7 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany(CartItem::class);
     }
+    
     
 
 }

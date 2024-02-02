@@ -1,7 +1,10 @@
 <?php
 
+use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
+use Laravel\Fortify\Http\Controllers\ProfileInformationController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
@@ -22,8 +25,8 @@ Route::get('/', function () {
 Route::get('das', function () {
     return view('admin.profile.profile');
 });
-Route::middleware(['auth', 'role:admin|writer|postman'])->name('admin.')->prefix('admin')->group(function(){
-    Route::middleware(['auth', 'role:admin'])->group(function(){
+Route::middleware(['auth', 'role:administrator|writer|postman'])->name('admin.')->prefix('admin')->group(function(){
+    Route::middleware(['auth', 'role:administrator'])->group(function(){
 
     });
     Route::middleware(['auth', 'role:writer'])->group(function(){
@@ -32,7 +35,9 @@ Route::middleware(['auth', 'role:admin|writer|postman'])->name('admin.')->prefix
     Route::middleware(['auth', 'role:postman'])->group(function(){
 
     });
-    Route::get('/',[DashboardController::class,'index'])->name('index');
+    // Route::get('/',[DashboardController::class,'index'])->name('index');
+    Route::get('/profile',[UserController::class,'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileInformationController::class,'update'])->name('profile.update');
 
 });
 

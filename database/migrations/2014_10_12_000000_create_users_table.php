@@ -19,6 +19,10 @@ return new class extends Migration {
             $table->string('mobile', 12);
             $table->string('national_code')->nullable();
             $table
+                ->string('address')->nullable();
+            $table->string('postal_code',16)->nullable();
+            
+            $table
                 ->tinyInteger('activation')
                 ->default(0)
                 ->comment('0 => inactive, 1 => active');

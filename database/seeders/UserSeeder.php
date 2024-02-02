@@ -13,6 +13,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create(['name' => 'مدیر سایت','mobile' => '09141304587']);
+        User::create(['first_name' => 'administrator','mobile' => '09141304587','password' => '13801380'])->assignRole('administrator');
     }
 }
