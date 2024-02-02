@@ -144,7 +144,7 @@
                             </div>
                             <div class="card-body">
                                 <div>
-                                    <form action="">
+                                    <form action="{{ route('admin.profile.update',$user->id) }}" method="POST">
                                         @method('PUT')
                                         @csrf
                                             <div class="row justify-content-right">
@@ -153,13 +153,28 @@
                                                     <div class="row mb-3">
                                                         <label for="exampleInputUsername2" class="col-sm-2 col-form-label">نام</label>
                                                         <div class="col-sm-6">
-                                                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="نام" name="name">
+                                                            <input type="text" class="form-control" id="exampleInputUsername2" placeholder="نام" name="first_name">
+                                                            @error('first_name')
+                                                                <span class="invalid-feedback d-block">
+                                                                    <strong>
+                                                                        {{ $message }}
+                                                                    </strong>
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                     </div>
+                                                    
                                                     <div class="row mb-3">
                                                         <label for="exampleInputUsername2" class="col-sm-2 col-form-label">نام خانوادگی</label>
                                                         <div class="col-sm-6">
                                                             <input type="text" class="form-control" id="exampleInputUsername2" placeholder="نام خانوادگی" name="last_name">
+                                                            @error('last_name')
+                                                                <span class="invalid-feedback d-block">
+                                                                    <strong>
+                                                                        {{ $message }}
+                                                                    </strong>
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -167,12 +182,26 @@
                                                         <label for="exampleInputMobile" class="col-sm-2 col-form-label">موبایل</label>
                                                         <div class="col-sm-6">
                                                             <input type="number" class="form-control" id="exampleInputMobile" placeholder="شماره موبایل" name="mobile">
+                                                            @error('mobile')
+                                                                <span class="invalid-feedback d-block">
+                                                                    <strong>
+                                                                        {{ $message }}
+                                                                    </strong>
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
                                                         <label for="exampleInputMobile" class="col-sm-2 col-form-label">کد ملی</label>
                                                         <div class="col-sm-6">
                                                             <input type="number" class="form-control" id="exampleInputMobile" placeholder="کد ملی خود را وارد کنید" name="national_code">
+                                                            @error('national_code')
+                                                                <span class="invalid-feedback d-block">
+                                                                    <strong>
+                                                                        {{ $message }}
+                                                                    </strong>
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -196,12 +225,26 @@
                                                         <label  class="col-sm-2 col-form-label">کارت بانکی</label>
                                                         <div class="col-sm-5">
                                                             <input  class="form-control" placeholder="شماره حساب برای بازگشت پول" data-inputmask-alias="9999-9999-9999-9999" name="bank_card">
+                                                            @error('bank_card')
+                                                                <span class="invalid-feedback d-block">
+                                                                    <strong>
+                                                                        {{ $message }}
+                                                                    </strong>
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
                                                         <label  class="col-sm-2 col-form-label">کد پستی</label>
                                                         <div class="col-sm-5">
                                                             <input  class="form-control" placeholder="کد پستی منزل یا شرکت" name="postal_code">
+                                                            @error('postal_code')
+                                                                <span class="invalid-feedback d-block">
+                                                                    <strong>
+                                                                        {{ $message }}
+                                                                    </strong>
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -209,12 +252,26 @@
                                                         <label for="exampleInputMobile" class="col-sm-2 col-form-label">آدرس</label>
                                                         <div class="col-sm-5">
                                                             <input type="text" class="form-control" id="exampleInputMobile" placeholder="مکان دریافت کالا" name="address">
+                                                            @error('address')
+                                                                <span class="invalid-feedback d-block">
+                                                                    <strong>
+                                                                        {{ $message }}
+                                                                    </strong>
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
                                                         <label for="exampleInputUsername2" class="col-sm-2 col-form-label">تاریخ تولد</label>
                                                         <div class="col-sm-6">
                                                             <input  data-jdp class="form-control" id="exampleInputUsername2" name="birthday">
+                                                            @error('birthday')
+                                                                <span class="invalid-feedback d-block">
+                                                                    <strong>
+                                                                        {{ $message }}
+                                                                    </strong>
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     
@@ -225,7 +282,7 @@
                                                 <!-- end col -->
                                             </div>
                                             <div class="text-end">
-                                                <button  type="button" class="btn light btn-primary my-3 mx-5">ذخیره تغییرات</button>
+                                                <button  type="submit" class="btn light btn-primary my-3 mx-5">ذخیره تغییرات</button>
                                             </div>
                                     </form>
                                     <!-- end row -->

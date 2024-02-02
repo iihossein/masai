@@ -23,11 +23,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'mobile' => [
                 'required',
                 'digits:11',
-                'unique'
+                Rule::unique(User::class),
             ],
             'national_code' => [
                 'digits:11',
-                'unique'
+                Rule::unique(User::class),
             ],
             'address' => ['string','max:200'],
             'postal_code' => ['numeric','max:16'],

@@ -29,6 +29,7 @@ return new class extends Migration {
             $table->timestamp('activation_date')->nullable();
             $table->string('password')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('bank_cart')->nullable();
             $table->timestamp('birthday')->nullable();
             $table
                 ->string('slug')

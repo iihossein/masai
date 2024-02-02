@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+    
     }
 
     /**
@@ -43,17 +43,20 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(string $id)
     {
+        $user = User::find($id);
         return view('admin.profile.profile',compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserRequest $request, string $id)
     {
-        
+        $user = User::find($id);
+        $user->update($request->all());
+        return redirect()->back();
     }
 
     /**

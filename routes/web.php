@@ -36,8 +36,8 @@ Route::middleware(['auth', 'role:administrator|writer|postman'])->name('admin.')
 
     });
     // Route::get('/',[DashboardController::class,'index'])->name('index');
-    Route::get('/profile',[UserController::class,'edit'])->name('profile.edit');
-    Route::put('/profile', [ProfileInformationController::class,'update'])->name('profile.update');
+    Route::get('/profile/{id}',[UserController::class,'edit'])->name('profile.edit');
+    Route::put('/profile/{id}', [UserController::class,'update'])->name('profile.update');
 
 });
 
