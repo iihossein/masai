@@ -38,11 +38,14 @@
                                     </div>
                                     <div class="flex-grow-1 mt-4">
                                         <div>
-                                            <h5 class="font-size-16 mb-2">سیما حسن زاده</h5>
+                                            <h5 class="font-size-16 mb-2">{{ $user->first_name.' '.$user->last_name }}</h5>
                                             {{-- <p class="text-muted font-size-13">فول استک دولوپر</p> --}}
 
                                             <div class="d-flex flex-wrap align-items-start gap-2 gap-lg-3 text-muted font-size-13">
-                                                <div><i class="mdi mdi-circle-medium me-1 text-success align-middle"></i>نویسنده</div>
+                                                @foreach ($user->roles as $role)
+                                                <div><i class="mdi mdi-circle-medium me-1 text-success align-middle"></i>{{ $role->name }}</div>
+                                                    
+                                                @endforeach
                                                 <div><i class="mdi mdi-circle-medium me-1 text-success align-middle"></i>پستچی</div>
                                             </div>
                                         </div>
@@ -83,19 +86,19 @@
                                         <div class="pt-3">
                                             <div class="d-flex gap-2">
                                                 <h5 class="col-sm-3 col-form-label">نام:</h5>
-                                                <h5 class="col-form-label">سیما</h5>
+                                                <h5 class="col-form-label">{{ $user->first_name }}</h5>
                                             </div>
                                             <div class="d-flex gap-2">
                                                 <h5 class="col-sm-3 col-form-label">نام خانوادگی:</h5>
-                                                <h5 class="col-form-label">حسن زاده</h5>
+                                                <h5 class="col-form-label">{{ $user->last_name }}</h5>
                                             </div>
                                             <div class="d-flex gap-2">
                                                 <h5 class="col-sm-3 col-form-label">شماره تماس:</h5>
-                                                <h5 class="col-form-label">09123456789</h5>
+                                                <h5 class="col-form-label">{{ $user->mobile }}</h5>
                                             </div>
                                             <div class="d-flex gap-2">
                                                 <h5 class="col-sm-3 col-form-label">کد ملی:</h5>
-                                                <h5 class="col-form-label">1717687339</h5>
+                                                <h5 class="col-form-label">{{ $user->national_code }}</h5>
                                             </div>
                                             
                                         </div>
@@ -104,19 +107,19 @@
                                         <div class="pt-3">
                                             <div class="d-flex gap-2">
                                                 <h5 class="col-sm-3 col-form-label">کارت بانکی:</h5>
-                                                <h5 class="col-form-label">سیما</h5>
+                                                <h5 class="col-form-label">{{ $user->bank_cart }}</h5>
                                             </div>
                                             <div class="d-flex gap-2">
                                                 <h5 class="col-sm-3 col-form-label">کد پستی</h5>
-                                                <h5 class="col-form-label">حسن زاده</h5>
+                                                <h5 class="col-form-label">{{ $user->postal_code }}</h5>
                                             </div>
                                             <div class="d-flex gap-2">
                                                 <h5 class="col-sm-3 col-form-label">آدرس:</h5>
-                                                <h5 class="col-form-label">09123456789</h5>
+                                                <h5 class="col-form-label">{{ $user->address }}</h5>
                                             </div>
                                             <div class="d-flex gap-2">
                                                 <h5 class="col-sm-3 col-form-label">تاریخ تولد:</h5>
-                                                <h5 class="col-form-label">1717687339</h5>
+                                                <h5 class="col-form-label">{{ $user->birthday }}</h5>
                                             </div>
                                             
                                         </div>
