@@ -38,7 +38,7 @@ class UserRequest extends FormRequest
                 ],
                 'address' => ['string','max:200'],
                 'postal_code' => ['integer','digits_between:8,16'],
-                // 'birthday' => ''
+                'birthday' => 'date',
                 'bank_cart' => ['integer','digits:16']
             
         ];

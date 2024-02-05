@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Morilog\Jalali\CalendarUtils;
+use Morilog\Jalali\Jalalian;
+use Morilog\Jalali\jDateTime;
 
 class UserController extends Controller
 {
@@ -46,6 +50,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $user = User::find($id);
+        // ddd($user->birthday);
         return view('admin.profile.profile',compact('user'));
     }
 
@@ -55,7 +60,16 @@ class UserController extends Controller
     public function update(UserRequest $request, string $id)
     {
         $user = User::find($id);
-        $user->update($request->all());
+        // string to miladi
+        $miladi = Jalalian::fromFormat('Y/m/d', $request->birthday)->toCarbon()->toDate();
+        //miladi to jalali
+        // $miladi = Jalalian::fromFormat('Y/m/d', $request->birthday)->toCarbon();
+        // $jalali = Jalalian::fromCarbon($miladi)->toDateString();
+        // $jalali = Jalalian::fromCarbon($miladi)->toDateTimeString();
+        
+        $user_data = $request->all();
+        $user_data['birthday'] = $miladi;
+        $user->update($user_data);
         return redirect()->back();
     }
 
