@@ -20,42 +20,102 @@ class RoleSeeder extends Seeder
         $role_postman = Role::create(['name' => 'postman']);
 
 
-        Permission::create(['name' => 'users']);
-        Permission::create(['name' => 'products']);
-        Permission::create(['name' => 'oders']);
-        Permission::create(['name' => 'discounts']);
+        Permission::create(['name' => 'users create']);
+        Permission::create(['name' => 'users read']);
+        Permission::create(['name' => 'users update']);
+        Permission::create(['name' => 'users delete']);
+
+        Permission::create(['name' => 'products create']);
+        Permission::create(['name' => 'products read']);
+        Permission::create(['name' => 'products update']);
+        Permission::create(['name' => 'products delete']);
+
+        Permission::create(['name' => 'orders read']);
+        Permission::create(['name' => 'orders delete']);
+
+        Permission::create(['name' => 'discounts create']);
+        Permission::create(['name' => 'discounts read']);
+        Permission::create(['name' => 'discounts update']);
+        Permission::create(['name' => 'discounts delete']);
+
         Permission::create(['name' => 'site setting']);
         Permission::create(['name' => 'permissions']);
         Permission::create(['name' => 'roles']);
-        Permission::create(['name' => 'comments']);
-        Permission::create(['name' => 'reviews']);
-        Permission::create(['name' => 'orders paid']);
-        Permission::create(['name' => 'orders delivered']);
-        Permission::create(['name' => 'orders returned']);
+        
+        Permission::create(['name' => 'comments create']);
+        Permission::create(['name' => 'comments read']);
+        Permission::create(['name' => 'comments update']);
+        Permission::create(['name' => 'comments delete']);
+
+        Permission::create(['name' => 'reviews create']);
+        Permission::create(['name' => 'reviews read']);
+        Permission::create(['name' => 'reviews update']);
+        Permission::create(['name' => 'reviews delete']);
+        
 
         $role_administrator->givePermissionTo([
-            'users',
-            'products',
-            'oders',
-            'discounts',
+            'users create',
+            'users read',
+            'users update',
+            'users delete',
+
+            'products create',
+            'products read',
+            'products update',
+            'products delete',
+
+            'orders read',
+            'orders delete',
+
+            'discounts create',
+            'discounts read',
+            'discounts update',
+            'discounts delete',
+
             'site setting',
             'permissions',
             'roles',
-            'comments',
-            'reviews',
-            'orders paid',
-            'orders delivered',
-            'orders returned'
+
+            'comments create',
+            'comments read',
+            'comments update',
+            'comments delete',
+
+            'reviews create',
+            'reviews read',
+            'reviews update',
+            'reviews delete',
+
         ]);
         $role_writer->givePermissionTo([
-            'products',
-            'discounts',
-            'comments'
+            'users read',
+
+
+
+            'products create',
+            'products read',
+            'products update',
+            'products delete',
+
+            'discounts create',
+            'discounts read',
+            'discounts update',
+            'discounts delete',
+
+            'comments create',
+            'comments read',
+            'comments update',
+            'comments delete',
+
+            'reviews create',
+            'reviews read',
+            'reviews update',
+            'reviews delete',
         ]);
         $role_postman->givePermissionTo([
-            'orders paid',
-            'orders delivered',
-            'orders returned'
+            'users read',
+            
+            'orders read',
         ]);
 
         

@@ -70,35 +70,38 @@
                      <th>ردیف</th>
                      <th scope="col">نام</th>
                      <th scope="col">موبایل</th>
-                     <th scope="col">ایمیل</th>
+                     <th scope="col">کد ملی</th>
                      <th scope="col">تاریخ عضویت</th>
+                     <th scope="col">وضعیت اکانت</th>
                      <th style="width: 80px; min-width: 80px;">عملیات</th>
                  </tr>
              </thead>
              <tbody>
-                 <tr>
-                     <td>1</td>
-                     <td>
+                @foreach ($users as $user)
+                <tr>         
+                    <td>{{ $user->id }}</td>
+                    <td>
                          <img src="{{ asset('admin/assets/images/users/avatar-2.jpg') }}" alt="" class="avatar-sm rounded-circle me-2">
-                         <a href="#" class="text-body">ازاده رحمتی</a>
+                         <a href="#" class="text-body">{{ $user->first_name.' '.$user->last_name}}</a>
                      </td>
-                     <td>09939276362</td>
-                     <td>phylln@minia.com</td>
-                     <td>1399/02/23</td>
+                     <td>{{ $user->mobile }}</td>
+                     <td>{{ $user->national_code }}</td>
+                     <td>{{ $user->created_at }}</td>
+                     <td>{{ $user->status == 0 ? 'فعال' : 'غیر فعال' }}</td>
                      <td>
                          <div class="dropdown">
                              <button class="btn btn-link font-size-16 shadow-none py-0 text-muted dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                  <i class="bx bx-dots-horizontal-rounded"></i>
+                                
                              </button>
                              <ul class="dropdown-menu dropdown-menu-end">
-                                  <li><a class="dropdown-item" href="#">جزئیات</a></li>
-                                 <li><a class="dropdown-item" href="#">حذف</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin.user.show',  ['id' => $user->id]) }}">جزئیات</a></li>
+                                {{-- <li><a class="dropdown-item" href="{{ route('admin.user.destroy',  ['id' => $user->id]) }}">حذف</a></li> --}}
                              </ul>
                          </div>
                      </td>
-                 </tr>
-
-
+                </tr>
+                @endforeach
 
              </tbody>
          </table>

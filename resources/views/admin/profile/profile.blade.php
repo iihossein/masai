@@ -44,9 +44,7 @@
                                             <div class="d-flex flex-wrap align-items-start gap-2 gap-lg-3 text-muted font-size-13">
                                                 @foreach ($user->roles as $role)
                                                 <div><i class="mdi mdi-circle-medium me-1 text-success align-middle"></i>{{ $role->name }}</div>
-                                                    
                                                 @endforeach
-                                                <div><i class="mdi mdi-circle-medium me-1 text-success align-middle"></i>پستچی</div>
                                             </div>
                                         </div>
                                     </div>

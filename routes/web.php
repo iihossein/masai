@@ -26,8 +26,17 @@ Route::get('das', function () {
     return view('admin.profile.profile');
 });
 Route::middleware(['auth', 'role:administrator|writer|postman'])->name('admin.')->prefix('admin')->group(function(){
-    Route::middleware(['auth', 'role:administrator'])->group(function(){
+    
+    Route::prefix('/user')->group(function () {
+        Route::get('/',[UserController::class,'index'])->name('user.index');
+        Route::get('/show/{id}',[UserController::class,'show'])->name('user.show');
+    });
 
+    Route::middleware(['auth', 'role:administrator'])->group(function(){
+        Route::prefix('/user')->group(function () {
+            Route::put('/update/{id}',[UserController::class,'update'])->name('user.update');
+            Route::delete('/destroy/{id}',[UserController::class,'destroy'])->name('user.destroy');
+        });
     });
     Route::middleware(['auth', 'role:writer'])->group(function(){
 
