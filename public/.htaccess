@@ -18,4 +18,20 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+
+    # برای اینکه به public اشاره کنیم
+    RewriteBase /
+
+    # مسیر‌های بدون فایل نماینده index.php را ایجاد می‌کنیم
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # محدود کردن دسترسی به /admin و /assets
+    RewriteRule ^ admin - [L]
+    RewriteRule ^ assets - [L]
+
+
+
 </IfModule>

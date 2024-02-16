@@ -36,7 +36,7 @@
                                             <label for="exampleInputUsername1" class="form-label">نام
                                                 محصول</label>
                                             <input type="text" class="form-control" autocomplete="off"
-                                                placeholder="نام برند">
+                                                placeholder="نام محصول" name="fa_name">
                                         </div>
                                     </div>
                                     <!-- Col -->
@@ -45,7 +45,7 @@
                                             <label for="exampleInputUsername1" class="form-label">نام
                                                 انگلیسی محصول</label>
                                             <input type="text" class="form-control" autocomplete="off"
-                                                placeholder="نام برند">
+                                                placeholder="نام برند" name="en_name">
                                         </div>
                                     </div>
                                     <!-- Col -->
@@ -53,12 +53,12 @@
                                         <div class="mb-3">
                                             <label for="exampleFormControlSelect1" class="form-label">برند
                                             </label>
-                                            <select class="form-select" id="exampleFormControlSelect1">
-                                                <option>سامسونگ</option>
-                                                <option>اپل</option>
-                                                <option>خوراکی</option>
-                                                <option>پوشاک</option>
-                                                <option>سرگرمی</option>
+                                            <select class="form-select" id="exampleFormControlSelect1" name="brand_id">
+                                                <option value="1">سامسونگ</option>
+                                                <option value="2">اپل</option>
+                                                <option value="3">خوراکی</option>
+                                                <option value="4">پوشاک</option>
+                                                <option value="5">سرگرمی</option>
                                             </select>
                                         </div>
                                     </div>
@@ -70,7 +70,7 @@
                                         <div class="mb-3">
                                             <label class="form-label">مبلغ : </label>
                                             <input class="form-control mb-4 mb-md-0" style="text-align: right;"
-                                                inputmode="decimal" placeholder="0">
+                                                inputmode="decimal" placeholder="0" name="price">
                                         </div>
                                     </div>
                                     <!-- Col -->
@@ -78,7 +78,7 @@
                                         <div class="mb-3">
                                             <label class="form-label">تعداد</label>
                                             <input class="form-control mb-4 mb-md-0" style="text-align: right;"
-                                                placeholder="0">
+                                                placeholder="0" name="stock">
                                         </div>
                                     </div>
                                     <!-- Col -->
@@ -87,20 +87,18 @@
                                             <label for="exampleInputUsername1" class="form-label">مشخصات گارانتی
                                             </label>
                                             <input type="text" class="form-control" autocomplete="off"
-                                                placeholder="نام برند">
+                                                placeholder="گارانتی" name="guarantee">
                                         </div>
                                     </div>
                                     <!-- Col -->
                                     <div class="col-sm-2">
                                         <div class="mb-3">
-                                            <label for="exampleFormControlSelect1" class="form-label">برند
+                                            <label for="exampleFormControlSelect1" class="form-label">وضعیت فروش
                                             </label>
-                                            <select class="form-select" id="exampleFormControlSelect1">
-                                                <option>سامسونگ</option>
-                                                <option>اپل</option>
-                                                <option>خوراکی</option>
-                                                <option>پوشاک</option>
-                                                <option>سرگرمی</option>
+                                            <select class="form-select" id="exampleFormControlSelect1" name="marketable">
+                                                <option>انتخاب وضعیت فروش</option>
+                                                <option>قابل فروش</option>
+                                                <option>توقف فروش</option>
                                             </select>
                                         </div>
                                     </div>
@@ -110,15 +108,13 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="mb-3">
-                                            <label class="form-label">انتخاب چندتایی</label>
+                                            <label class="form-label">دسته بندی ها</label>
                                             <select class="js-example-basic-multiple form-select"
-                                                multiple="multiple" data-width="100%" name="categories">
-                                                <option value="TX">ایران</option>
-                                                <option value="WY">برزیل</option>
-                                                <option value="NY">ترکیه</option>
-                                                <option value="FL">کانادا</option>
-                                                <option value="KN">انگلستان</option>
-                                                <option value="HW">استرالیا</option>
+                                                multiple="multiple" data-width="100%" name="category">
+                                                <option value="TX">پوشاک</option>
+                                                <option value="TX">کالای دیجیتال</option>
+                                                <option value="TX">شدوربین</option>
+                                                <option value="WY">عینک</option>
                                             </select>
                                         </div>
                                     </div>
@@ -127,7 +123,7 @@
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1"
                                                 class="form-label">توضیحات</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            <textarea name="description" class="form-control" id="exampleFormControlTextarea1"
                                                 rows="5"></textarea>
                                         </div>
                                     </div>
@@ -144,7 +140,7 @@
                                 </div>
                                 <!-- Row -->
                             </form>
-                            <button type="button" class="btn btn-primary submit">ارسال فرم</button>
+                            <button type="submit" class="btn btn-primary submit">افزودن محصول</button>
                         </div>
                     </div>
                 </div>

@@ -21,11 +21,11 @@ return new class extends Migration {
                 ->constrained('brands')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table
-                ->foreignId('category_id')
-                ->constrained('categories')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            // $table
+            //     ->foreignId('category_id')
+            //     ->constrained('categories')
+            //     ->onUpdate('cascade')
+            //     ->onDelete('cascade');
             $table->decimal('price', 20, 3);
             $table->decimal('final_price', 20, 3);
             $table->Integer('stock');
@@ -38,7 +38,6 @@ return new class extends Migration {
                 ->comment('1 => marketable, 0 => is not marketable');
             $table->tinyInteger('status')->default(0);
             $table->integer('viewes');
-            $table->integer('likes');
             $table->timestamps();
         });
     }

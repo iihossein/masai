@@ -255,8 +255,8 @@
                                 <span data-key="t-components">محصولات</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="ui-alerts.html" data-key="t-alerts">افزودن محصول جدید</a></li>
-                                <li><a href="ui-buttons.html" data-key="t-buttons">لیست محصولات</a></li>
+                                <li><a href="{{ route('dashboard.products.create') }}" data-key="t-alerts">افزودن محصول جدید</a></li>
+                                <li><a href="{{ route('dashboard.products.index') }}" data-key="t-buttons">لیست محصولات</a></li>
                                 <li><a href="ui-buttons.html" data-key="t-buttons">دسته بندی ها</a></li>
                                 <li><a href="ui-buttons.html" data-key="t-buttons">برند ها</a></li>
                             </ul>
