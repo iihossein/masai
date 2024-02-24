@@ -1,11 +1,7 @@
-
-
-// Register the plugin
 FilePond.registerPlugin(FilePondPluginImagePreview);
 
 
-
-const labels_fa_ir ={
+const labels_fa_ir = {
     labelIdle: 'فایل را اینجا بکشید و رها کنید، یا <span class="filepond--label-action"> جستجو کنید </span>',
     labelInvalidField: 'فیلد دارای فایل های نامعتبر است',
     labelFileWaitingForSize: 'Waiting for size',
@@ -46,22 +42,14 @@ const labels_fa_ir ={
 }
 
 
-// Get a reference to the file input element
-const inputElement = document.querySelector('input[type="file"]');
+
+const inputElement = document.querySelector('input[id="file"]');
 FilePond.setOptions(labels_fa_ir);
 
 // Create a FilePond instance
 const pond = FilePond.create(inputElement);
 
+// process: 'dashboard/upload',
+//     revert: 'dashboard/delete',
 
 
-
-FilePond.setOptions({
-server: {
-process: '/upload',
-revert: '/delete',
-headers: {
-'X-CSRF-TOKEN': '{{ csrf_token() }}'
-}
-},
-});

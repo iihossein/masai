@@ -68,7 +68,7 @@ Route::middleware(['auth', 'role:administrator|writer|postman'])->name('dashboar
     });
     Route::get('/profile/{id}', [UserController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/{id}', [UserController::class, 'update'])->name('profile.update');
-
+    Route::post('/upload',[\App\Http\Controllers\UploadController::class,'store']);
 });
 
 
