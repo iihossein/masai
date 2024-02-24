@@ -206,7 +206,7 @@
                                         <!-- Col -->
                                         <div class="col-sm-12">
                                             <div class="mb-3">
-                                                <input type="file" class="filepond" name="image" id="file" multiple
+                                                <input type="file" class="filepond" name="file" id="file" multiple
                                                        credits="false">
                                             </div>
                                         </div>
@@ -252,11 +252,28 @@
 @endsection
 @section('style')
     <!-- filepond -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/filepond/dist/filepond.min.css') }}" type="text/css">
-    <link href="{{ asset('admin/filepond-plugin-image-preview.css') }}" rel="stylesheet" />
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link
+            href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+            rel="stylesheet"
+    />
+{{--    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/filepond/dist/filepond.min.css') }}" type="text/css">--}}
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/select2/select2.min.css') }}">
 
+    <style>
+        @media (min-width: 30em) {
+            .filepond--item {
+                width: calc(50% - 0.5em);
+            }
+        }
+
+        @media (min-width: 50em) {
+            .filepond--item {
+                width: calc(33.33% - 0.5em);
+            }
+        }
+    </style>
 
     {{-- @livewireStyles --}}
 
@@ -269,12 +286,15 @@
 
 
     <!-- filepond -->
-    <script src="{{ asset('admin/assets/vendors/filepond/dist/filepond.min.js') }}"></script>
-    <script src="{{ asset('admin/filepond-plugin-image-preview.js') }}"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+
+    {{--    <script src="{{ asset('admin/assets/vendors/filepond/dist/filepond.min.js') }}"></script>--}}
     <script src="{{ asset('admin/assets/js/filepond.js') }}"></script>
     <!-- Custom js for this page -->
     {{-- @livewireScripts --}}
     <script>
+
         FilePond.setOptions({
             server: {
                 url: 'http://127.0.0.1:8000/dashboard/upload',

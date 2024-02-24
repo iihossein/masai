@@ -12,9 +12,9 @@ class UploadController extends Controller
             $file = $request->file('file');
             $filename = $file->getClientOriginalName();
             $folder = uniqid() . '-'.now()->timespan();
-            $file->storeAs('uploads/tmp'.$folder,$filename);
-            return $folder;
+            $file->storeAs('uploads/tmp'.$folder.$filename);
         }
-        return '';
+        return $folder;
+
     }
 }

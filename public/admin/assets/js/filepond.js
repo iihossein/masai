@@ -1,6 +1,4 @@
 FilePond.registerPlugin(FilePondPluginImagePreview);
-
-
 const labels_fa_ir = {
     labelIdle: 'فایل را اینجا بکشید و رها کنید، یا <span class="filepond--label-action"> جستجو کنید </span>',
     labelInvalidField: 'فیلد دارای فایل های نامعتبر است',
