@@ -4,6 +4,7 @@ use App\Actions\Fortify\UpdateUserProfileInformation;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\ProfileInformationController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
@@ -68,7 +69,7 @@ Route::middleware(['auth', 'role:administrator|writer|postman'])->name('dashboar
     });
     Route::get('/profile/{id}', [UserController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/{id}', [UserController::class, 'update'])->name('profile.update');
-    Route::post('/upload',[\App\Http\Controllers\UploadController::class,'store']);
+    Route::post('/upload', [\App\Http\Controllers\UploadController::class, 'store']);
 });
 
 

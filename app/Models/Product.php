@@ -16,6 +16,14 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Product extends Model implements HasMedia
 {
     use HasFactory,InteractsWithMedia;
+    protected $fillable = [
+            'en_name','fa_name','description','brand_id','category_id','price','stock','guarantee','marketable'
+        ];
+    public function reqisterMediaCollections(): void
+    {
+        $this->addMediaCollection('products')
+            ->crop(\Spatie\Image\Manipulations::CROP_CENTER, 800, 800);
+    }
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')

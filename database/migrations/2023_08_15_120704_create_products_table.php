@@ -14,22 +14,21 @@ return new class extends Migration {
             $table->id();
             $table->string('en_name')->nullable();
             $table->string('fa_name');
-            $table->string('description');
-            $table->string('sku', 100);
+            $table->string('description');;
             $table
                 ->foreignId('brand_id')
                 ->constrained('brands')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            // $table
-            //     ->foreignId('category_id')
-            //     ->constrained('categories')
-            //     ->onUpdate('cascade')
-            //     ->onDelete('cascade');
+            $table
+                ->foreignId('category_id')
+                ->constrained('categories')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->decimal('price', 20, 3);
-            $table->decimal('final_price', 20, 3);
+            $table->decimal('final_price', 20, 3)->nullable();
             $table->Integer('stock');
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->string('guarantee')->nullable();
             $table->tinyInteger('sold_number')->default(0);
             $table
@@ -37,7 +36,7 @@ return new class extends Migration {
                 ->default(1)
                 ->comment('1 => marketable, 0 => is not marketable');
             $table->tinyInteger('status')->default(0);
-            $table->integer('viewes');
+            $table->integer('viewes')->nullable();
             $table->timestamps();
         });
     }

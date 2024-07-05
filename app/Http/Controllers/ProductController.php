@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\TemporaryFile;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -20,7 +23,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.add_product');
+        $brands = Brand::all();
+        $categories = Category::all();
+        return view('admin.products.add_product', ['brands' => $brands, 'categories' => $categories]);
     }
 
     /**
@@ -28,7 +33,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::create([
+            'en_name' => $request->en_name,
+            'fa_name' => $request->fa_name,
+            'description' => $request->description,
+            'brand_id' => $request->brand_id,
+            'category_id' => $request->category_id,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'guarantee' => $request->guarantee,
+            'marketable' => $request->marketable,
+        ]);
+        $temporaryFile = TemporaryFile::where('folder', $request->file)->first();
+        // dd($temporaryFile);
+        if ($temporaryFile) {
+            $product->addMedia(storage_path('app/public/uploads/tmp/' . $temporaryFile->filename))
+                ->toMediaCollection('products');
+            rmdir(storage_path('app/public/uploads/tmp/' . $request->file));
+            $temporaryFile->delete();
+        }
+
     }
 
     /**
